@@ -1,0 +1,12 @@
+﻿  Snake.cpp
+D:\Snake\Snake\Snake.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Snake\Snake\Snake.cpp(59,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(59,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(63,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(63,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(99,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Snake\Snake\Snake.cpp(106,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(106,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(155,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(155,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Snake.vcxproj -> D:\Snake\Debug\Snake.exe
