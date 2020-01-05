@@ -1,4 +1,4 @@
-// sebelum test jalanin setting sfmlmnya dulu di release sama jalanin di release
+// sebelum test setting sfmlmnya dulu di release sama jalanin di release
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <time.h>
@@ -23,27 +23,27 @@ int main() {
 	Texture dif1;
 	dif1.loadFromFile("img/Easy1.png");
 	Sprite easy1(dif1);
-	easy1.setPosition(250, 100);
+	easy1.setPosition(250, 150);
 	Texture dif2;
 	dif2.loadFromFile("img/Medium1.png");
 	Sprite med1(dif2);
-	med1.setPosition(250, 250);
+	med1.setPosition(250, 300);
 	Texture dif3;
 	dif3.loadFromFile("img/Hard1.png");
 	Sprite hard1(dif3);
-	hard1.setPosition(250, 400);
+	hard1.setPosition(250, 450);
 	Texture dif12;
 	dif12.loadFromFile("img/Easy2.png");
 	Sprite easy2(dif12);
-	easy2.setPosition(250, 100);
+	easy2.setPosition(250, 150);
 	Texture dif22;
 	dif22.loadFromFile("img/Medium2.png");
 	Sprite med2(dif22);
-	med2.setPosition(250, 250);
+	med2.setPosition(250, 300);
 	Texture dif32;
 	dif32.loadFromFile("img/Hard2.png");
 	Sprite hard2(dif32);
-	hard2.setPosition(250, 400);
+	hard2.setPosition(250, 450);
 
 	int l = 1; //panjang ular
 	int x1[1200]; //koordinat tubuh ular di x, panjang maks 1200 (belum tau caranya jadiin 4800 biar beneran maks)
@@ -69,8 +69,12 @@ int main() {
 	int dif = 0; // tingkat kesulitan
 	int point = 0; // penunjuk pada menu
 
-	int a = 100; // patokan kecepatan
-	int v = 0; // kecepatan
+	// variabel untuk waktu
+	Clock clock;
+	Time time;
+
+	float a = 100; // patokan kecepatan
+	float v; // kecepatan
 	int x = 1; // jarak pindahnya ular di x
 	int y = 0; // jarak pindahnya ular di y
 
@@ -87,7 +91,7 @@ int main() {
 	Texture No1;
 	No1.loadFromFile("img/No1.png");
 	Sprite no1(No1);
-	no1.setPosition(250, 400);
+	no1.setPosition(250, 350);
 	Texture Yes2;
 	Yes2.loadFromFile("img/Yes2.png");
 	Sprite yes2(Yes2);
@@ -95,11 +99,11 @@ int main() {
 	Texture No2;
 	No2.loadFromFile("img/No2.png");
 	Sprite no2(No2);
-	no2.setPosition(250, 400);
+	no2.setPosition(250, 350);
 
 	// untuk mencatat score
 	FILE* score;
-	score = fopen("Score.txt", "a");
+	score = fopen("score/Score.txt", "a");
 
 	while (window.isOpen()) {
 		if (dif == 0) { // dif = 0 (tingkat kesulitan belum dipilih) menampilkan menu
@@ -129,7 +133,7 @@ int main() {
 			if (Keyboard::isKeyPressed(Keyboard::Enter)) { // bila tombol enter ditekan akan masuk ke dalam game
 				clk++;
 				if (clk > 75) {
-					dif = pow(2, point); // tingkat kesulitan = 2^pilihan (easy = 0, med = 1, hard = 4) penjelasan lebih lanjut dibawah
+					dif = pow(2, point); // tingkat kesulitan = 2^pilihan (easy = 1, med = 2, hard = 4) penjelasan lebih lanjut dibawah
 
 					point = 0;
 					clk = 0;
@@ -164,7 +168,8 @@ int main() {
 				y = 0;
 			}
 
-			v++;
+			time = clock.getElapsedTime(); // ngambil waktu yang sudah berjalan
+			v = time.asMilliseconds(); // ngubah waktu yang dalam millisecond ke bentuk float(bilangan desimal)
 			if (v > a / dif) { // apabila kecepatan sudah melebihi a/dif ular akan bergerak
 				for (int i = l; i > 0; i--) { // pengaturan posisi ular jadi posisi belakang = posisi depannya
 					x1[i] = x1[i - 1];
@@ -175,7 +180,7 @@ int main() {
 				x1[0] += x * 10;
 				y1[0] += y * 10;
 
-				v = 0;
+				clock.restart(); // restart total waktu yang telah berjalan
 			}
 
 			// biar bisa nembus dan balik
@@ -196,20 +201,21 @@ int main() {
 				y2 = rand() % 60 * 10;
 
 				food.setPosition(x2, y2);
+
+				printf("\a");
 			}
 
 			// pengecekan kalah/ mati (posisi kepala ular sama dengan salah satu posisi badan ular)
 			for (int i = 1; i < l; i++) {
 				if (x1[0] == x1[i] && y1[0] == y1[i]) {
 					lose = true;
-					point = 0;
 
 					fprintf(score, "Your Last Score : %d\n", l); // nyatet score di file Score.txt
 				}
 			}
 		}
 
-		else { // pmenu pada saat kalah
+		else { // menu pada saat kalah
 			window.draw(lbg);
 
 			(point == 0) ? window.draw(yes2) : window.draw(yes1);

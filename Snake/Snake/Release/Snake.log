@@ -2,16 +2,17 @@
 D:\Snake\Snake\Snake.cpp(12,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Snake\Snake\Snake.cpp(67,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Snake\Snake\Snake.cpp(67,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(132,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-D:\Snake\Snake\Snake.cpp(145,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(145,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(198,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(198,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(253,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Snake\Snake\Snake.cpp(253,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(134,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Snake\Snake\Snake.cpp(147,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(147,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(170,27): warning C4244: '=': conversion from 'sf::Int32' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(201,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(201,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(257,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Snake\Snake\Snake.cpp(257,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  0 of 75 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  3 of 76 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Snake.vcxproj -> D:\Snake\Release\Snake.exe
